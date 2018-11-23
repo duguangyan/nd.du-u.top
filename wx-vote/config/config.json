@@ -1,0 +1,9 @@
+{
+  "wechat" : {
+    "appID": "wx40dd1ed6ab6087b2",
+    "appSecret": "72b100ff382096164dd64bc058a0c7a5",
+    "token": "duguangyan2010",
+    "prefix": "https://api.weixin.qq.com/cgi-bin/",
+    "mpPrefix": "https://mp.weixin.qq.com/cgi-bin/"
+  }
+}
