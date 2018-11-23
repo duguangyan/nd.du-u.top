@@ -19,23 +19,36 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+   //next(createError(404));
+    // 去404页面
+    //res.render('404')
+    // 返回json数据
+    res.json({ msg: '数据不存在', code: 201 })
 });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+// app.use(function(err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
+//
+//   // render the error page
+//   res.status(err.status || 500);
+//   res.render('error');
+// });
+/* 全局错误抛出 */
+app.use((error, req, res, next) => {
+    if (error) {
+        res.json({ msg: error.message, code: error.code })
+    }
 });
 
 module.exports = app;
