@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 微信签名认证
-app.use(utils.sign(config))
+// app.use(utils.sign(config))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
